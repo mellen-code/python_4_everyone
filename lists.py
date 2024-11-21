@@ -40,7 +40,8 @@ print(t)
 # can list all Python list methods in interpreter, use dir(list)
 
     # a couple examples:
-        # EXTEND:
+        
+    # EXTEND:
         # extend takes a list as an argument and appends all of the elements:
 
         # >>> t1 = ['a', 'b', 'c']
@@ -50,7 +51,7 @@ print(t)
         # ['a', 'b', 'c', 'd', 'e']
         # This example leaves t2 unmodified.
 
-        # SORT:
+    # SORT:
         # sort arranges the elements of the list from low to high:
 
         # >>> t = ['d', 'c', 'e', 'b', 'a']
@@ -59,3 +60,20 @@ print(t)
         # >>> print(t)
         # ['a', 'b', 'c', 'd', 'e']
         # Most list methods are void; they modify the list and return None. If you accidentally write t = t.sort(), you will be disappointed with the result. 
+    
+    #DEL
+        # If you don’t need the removed value, you can use the del STATEMENT*:
+
+        # >>> t = ['a', 'b', 'c']
+        # >>> del t[1]
+        # >>> print(t)
+        # ['a', 'c']
+
+        # To remove more than one element, you can use del with a slice index:
+
+        # >>> t = ['a', 'b', 'c', 'd', 'e', 'f']
+        # >>> del t[1:5]
+        # >>> print(t)
+        # ['a', 'f']
+
+        # *statements seem to flexible - can be used with many object types (list, string, etc)??

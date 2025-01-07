@@ -34,6 +34,6 @@ for line in fh:
         start = line.find('0')
         num = float(line[start:])
         # print(num)
-        total = total + num
-        count = count + 1
-print(total/count)
+        total += num
+        count += 1
+print(f"Average spam confidence: {total/count}")

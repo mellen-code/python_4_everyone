@@ -27,4 +27,4 @@ print(first * second)  # => 'test test test'
 
 x = 3
 if x < 10:
-    print('small')
+    print('smaller')

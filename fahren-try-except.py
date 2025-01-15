@@ -36,4 +36,4 @@ try:
         
     print(pay)
 except:
-    print('Please provide a number')
+    print('Please provide a number ')

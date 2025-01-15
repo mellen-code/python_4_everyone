@@ -77,3 +77,13 @@ print(t)
         # ['a', 'f']
 
         # *statements seem to flexible - can be used with many object types (list, string, etc)??
+
+s = 'pining for the fjords'
+# print(s[11:14])
+t = s.split()
+# print(t[2])
+# print(t.index('the'))
+
+m = 'spam-spam-spam'
+n = m.split('-')
+print((' ').join(n))

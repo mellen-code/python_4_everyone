@@ -87,3 +87,30 @@ t = s.split()
 m = 'spam-spam-spam'
 n = m.split('-')
 print((' ').join(n))
+
+
+# >>> a = 'banana'
+# >>> b = 'banana'
+# >>> a is b
+# True
+
+# >>> a = [1, 2, 3]
+# >>> b = [1, 2, 3]
+# >>> a is b
+# False
+
+# >>> a = [1, 2, 3]
+# >>> b = a
+# >>> b is a
+# True
+# If the aliased object is mutable, changes made with one alias affect the other:
+
+# >>> b[0] = 17
+# >>> print(a)
+# [17, 2, 3]
+# Although this behavior can be useful, it is error-prone. In general, it is safer to avoid aliasing when you are working with mutable objects.
+
+# For immutable objects like strings, aliasing is not as much of a problem. Because you cannot accidentally mutate a string (it will never change). In this example:
+
+# a = 'banana'
+# b = 'banana'

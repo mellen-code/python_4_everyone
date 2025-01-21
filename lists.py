@@ -114,3 +114,46 @@ print((' ').join(n))
 
 # a = 'banana'
 # b = 'banana'
+
+
+# It is important to distinguish between operations that modify original list (and do not return anything) and operations that create new lists. For example, the append method modifies a list, but the + operator creates a new list:
+
+# List arguments
+# >>> t1 = [1, 2]
+# >>> t2 = t1.append(3)
+# >>> print(t1)
+# [1, 2, 3]
+# >>> print(t2)
+# None
+
+# >>> t3 = t1 + [3]
+# >>> print(t3)
+# [1, 2, 3]
+# >>> t1 is t3
+# False
+
+# DEBUGGING
+# Careless use of lists (and other mutable objects) can lead to long hours of debugging. Here are some common pitfalls and ways to avoid them:
+
+# Don’t forget that most list methods modify the argument and return None. This is the opposite of the string methods, which return a new string and leave the original alone.
+
+# If you are used to writing string code like this:
+
+# word = word.strip()
+# It is tempting to write list code like this:
+
+# t = t.sort()           # WRONG!
+
+# Because sort returns None, the next operation you perform with t is likely to fail.
+
+
+# Exercise 1: Write a function called chop that takes a list and modifies it, removing the first and last elements, and returns None. Then write a function called middle that takes a list and returns a new list that contains all but the first and last elements.
+
+def chop(l):
+    l[1:len(l)-1]
+
+print(chop([1,2,3,4]), '- chop function')
+
+def middle(l):
+    return l[1:len(l)-1]
+print(middle([5,6,7,8]), '- middle function')

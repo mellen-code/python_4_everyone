@@ -32,12 +32,31 @@
 
 
 # EXERCISE: Write a program that reads the words in words.txt and stores them as keys in a dictionary. It doesn’t matter what the values are. Then you can use the in operator as a fast way to check whether a string is in the dictionary.
-fname = input('Enter file name: ')
-fhand = open(fname)
-for line in fhand:
-    all_words = dict()
-    line = line.rstrip().split(' ')
-    for word in line:
-        # print(word)
-        all_words[word] = 1
-print(all_words)
+# fname = input('Enter file name: ')
+# fhand = open(fname)
+# for line in fhand:
+#     all_words = dict()
+#     line = line.rstrip().split(' ')
+#     for word in line:
+#         # print(word)
+#         all_words[word] = 1
+# print(all_words)
+
+# Histogram - counts frequencies
+counts = {}
+names = ['name1', 'ben', 'cewn', 'cewn']
+# for name in names:
+#     if name not in counts:
+#         counts[name] = 1
+#     else:
+#         counts[name] += 1
+
+
+# x = counts.get(name, 0)
+# print(x)
+# second arg - 0 - is default value of name
+
+# SO:
+# for name in names:
+#     counts[name] = counts.get(name, 0) + 1
+# print(counts)

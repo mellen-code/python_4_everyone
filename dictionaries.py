@@ -21,7 +21,7 @@
 
 # The in operator works on dictionaries; it tells you whether something appears as a key in the dictionary (appearing as a value is not good enough).
 
-# To find VALUE in a dictionary:
+# To search for a VALUE in a dictionary:
 # >>> vals = list(eng2sp.values())
 # >>> 'uno' in vals
 # True
@@ -42,7 +42,30 @@
 #         all_words[word] = 1
 # print(all_words)
 
-# Histogram - counts frequencies
+
+# count the instances of each letter in a word:
+# mushu = iterator variable
+
+# word = 'brontosaurus'
+# d = dict()
+# for mushu in word:
+#     if mushu not in d:
+#         d[mushu] = 1
+#     else:
+#         d[mushu] += 1
+# print(d)
+
+# OR:
+# use get()
+word = 'brontosaurus'
+d = dict()
+for moomoo in word:
+    d[moomoo] = d.get(moomoo,0) + 1
+print(d)
+
+
+
+# Histogram - counts frequencies (a statistical term for a set of counters/frequencies)
 counts = {}
 names = ['name1', 'ben', 'cewn', 'cewn']
 # for name in names:

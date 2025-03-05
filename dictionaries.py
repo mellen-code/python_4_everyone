@@ -63,6 +63,13 @@ for moomoo in word:
     d[moomoo] = d.get(moomoo,0) + 1
 print(d)
 
+# diction = dict()
+# for letter in word:
+#     diction[letter] = diction.get(letter, 0) + 1
+# print(diction)
+
+
+
 
 
 # Histogram - counts frequencies (a statistical term for a set of counters/frequencies)

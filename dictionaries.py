@@ -93,28 +93,131 @@ names = ['name1', 'ben', 'cewn', 'cewn']
 
 # ADVANCED TEXT PARSING
 # use translate()
-import string
+# import string
+
+# fname = input('Enter file name: ')
+# try:
+#     fhand = open(fname)
+# except:
+#     print('File cannot be opened', fname)
+#     exit()
+
+# counts = dict()
+# for line in fhand:
+#     line = line.rstrip()
+    
+#     line = line.translate(line.maketrans('', '', string.punctuation))
+#     line = line.lower()
+#     words = line.split()
+
+#     for word in words:
+#         if word not in counts:
+#             counts[word] = 1
+#         else:
+#             counts[word] += 1
+
+# print(counts)
+
+
+
+
+# EXERCISE 2: Write a program that categorizes each mail message by which day of the week the commit was done. To do this look for lines that start with “From”, then look for the third word and keep a running count of each of the days of the week. At the end of the program print out the contents of your dictionary (order does not matter).
+
+# split the file into lines. For each line, if the line starts with 'From', add the word to a dictionary if the word isn't in there, if it is, add 1 to the word's count. Return the dictionary.
+
+# fname = input('Enter a file name: ')
+# if len(fname) < 1:
+#     fname = 'mbox_short.txt'
+
+# fhand = open(fname)
+
+# days = dict()
+# for line in fhand:
+#     line = line.split(' ')
+
+#     if len(line) > 1 and line[0] == 'From':
+#         # if line[2] not in days:
+#         #     days[line[2]] = 1
+#         # else:
+#         #     days[line[2]] += 1
+#         days[line[2]] = days.get(line[2], 0) + 1
+
+# print(days)
+
+
+
+# EXERCISE 3: Write a program to read through a mail log, build a histogram using a dictionary to count how many messages have come from each email address, and print the dictionary.
+
+# Enter file name: mbox-short.txt
+# {'gopal.ramasammycook@gmail.com': 1, 'louis@media.berkeley.edu': 3,
+# 'cwen@iupui.edu': 5, 'antranig@caret.cam.ac.uk': 1,
+# 'rjlowe@iupui.edu': 2, 'gsilver@umich.edu': 3,
+# 'david.horwitz@uct.ac.za': 4, 'wagnermr@iupui.edu': 1,
+# 'zqian@umich.edu': 4, 'stephen.marquard@uct.ac.za': 2,
+# 'ray@media.berkeley.edu': 1}
+
+# fname = input('Enter file name: ')
+# if len(fname) < 1:
+#     fname = 'mbox_short.txt'
+#     fhand = open(fname)
+# else:
+#     try:
+#         fhand = open(fname)
+#     except:
+#         print('File not found', fname)
+#         exit()
+
+# emails = dict()
+# for line in fhand:
+#     words = line.split()
+
+#     if len(words) > 1 and words[0] == 'From':
+#         emails[words[1]] = emails.get(words[1], 0) +1
+
+# print(emails)
+
+
+
+
+# EXERCISE 4: Add code to the above program to figure out who has the most messages in the file. After all the data has been read and the dictionary has been created, look through the dictionary using a maximum loop (see Chapter 5: Maximum and minimum loops) to find who has the most messages and print how many messages the person has.
+
+# Enter a file name: mbox-short.txt
+# cwen@iupui.edu 5
+
+# Enter a file name: mbox.txt
+# zqian@umich.edu 195
+
+# Using EXERCISE 3 code, after the loop to add data to dictionary, move dictionary's values to a list, get the max value, and find that value's key in the dictionary and return the pair as a string.
 
 fname = input('Enter file name: ')
-try:
+if len(fname) < 1:
+    fname = 'mbox_short.txt'
     fhand = open(fname)
-except:
-    print('File cannot be opened', fname)
-    exit()
+else:
+    try:
+        fhand = open(fname)
+    except:
+        print('File not found', fname)
+        exit()
 
-counts = dict()
+emails = dict()
 for line in fhand:
-    line = line.rstrip()
-    
-    line = line.translate(line.maketrans('', '', string.punctuation))
-    line = line.lower()
     words = line.split()
 
-    for word in words:
-        if word not in counts:
-            counts[word] = 1
-        else:
-            counts[word] += 1
+    if len(words) > 1 and words[0] == 'From':
+        emails[words[1]] = emails.get(words[1], 0) +1
 
-print(counts)
+# values = list(emails.values())
+# max_value = max(values)
+# key_of_max_value = [key for key, val in emails.items() if val == max_value]
+# print("".join(key_of_max_value), max_value)
 
+# OR just loop thru the dictionary and store max!
+max_key = ''
+
+# using .get() to search for max_key value in emails. If it doesn't exist, max_key value is set to zero:
+for key in emails:
+    if emails[key] > emails.get(max_key, 0):
+        max_key = key
+
+print(max_key, emails[max_key])

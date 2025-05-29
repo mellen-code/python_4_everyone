@@ -24,7 +24,7 @@ res = list()
 for length,word in t:
     res.append(word)
 
-print(res)
+# print(res)
 
 # ****TUPLE ASSIGNMENT
 # >>> m = ( 'have', 'fun' )
@@ -70,3 +70,42 @@ uname, domain = addr.split('@')
 # l.sort(reverse=True)
 # 
 # [(22, 'c'), (10, 'a'), (1, 'b')]
+
+
+
+# ***ROMEO AND JULIET EXERCISE
+import string
+fhand = open('romeo.txt')
+
+counts = dict()
+for line in fhand:
+    line = line.translate(str.maketrans('', '', string.punctuation))
+    line = line.lower()
+    words = line.split()
+    for word in words:
+        if word not in counts:
+            counts[word] = 1
+        else:
+            counts[word] += 1
+
+# sort the dictionary by value
+lst = list()
+for key, val in counts.items():
+    lst.append( (val, key) )
+
+lst.sort(reverse=True)
+
+for key, val in lst[:10]:
+    print(key, val)
+# returns:
+# 3 the
+# 3 is
+# 3 and
+# 2 sun
+# 1 yonder
+# 1 with
+# 1 window
+# 1 who
+# 1 what
+# 1 through
+

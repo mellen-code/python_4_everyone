@@ -140,43 +140,43 @@ and alt-shift-A!'''
 
 
 # ***Using tuples as keys in dictionaries
-# Because tuples are hashable and lists are not, if we want to create a composite* key to use in a dictionary we must use a tuple as the key.
+'''Because tuples are hashable and lists are not, if we want to create a composite* key to use in a dictionary we must use a tuple as the key.'''
 
 # *composite key = unique identifier. Can contain multiple values, as a tuple
 
-# Assuming that we have defined the variables last, first, and number, we could write a dictionary assignment statement as follows:
+'''Assuming that we have defined the variables last, first, and number, we could write a dictionary assignment statement as follows:
 # directory[last,first] = number
 
-# The expression in brackets is a tuple.
+The expression in brackets is a tuple.
 
-# We could use tuple assignment in a for loop to traverse this dictionary.
+We could use tuple assignment in a for loop to traverse this dictionary.
 
-# for last, first in directory:
-    # print(first, last, directory[last,first])
+for last, first in directory:
+    print(first, last, directory[last,first])
 
-# This loop traverses the keys in directory, which are tuples. It assigns the elements of each tuple to last and first, then prints the name and corresponding telephone number.
+This loop traverses the keys in directory, which are tuples. It assigns the elements of each tuple to last and first, then prints the name and corresponding telephone number.'''
 
 
 # ***Sequences: strings, lists, and tuples - Oh My!
 
-# In many contexts, the different kinds of sequences (strings, lists, and tuples) can be used interchangeably. So how and why do you choose one over the others?
+'''In many contexts, the different kinds of sequences (strings, lists, and tuples) can be used interchangeably. So how and why do you choose one over the others?
 
     # ***STRINGS
-    # - more limited than other sequences because the elements have to be characters. 
-    # - They are also immutable. 
-        # - If you need the ability to change the characters in a string (as opposed to creating a new string), you might want to use a list of characters instead.
+    - more limited than other sequences because the elements have to be characters. 
+    - They are also immutable. 
+        - If you need the ability to change the characters in a string (as opposed to creating a new string), you might want to use a list of characters instead.
 
     # ***LISTS
-    # - more common than tuples
-    # - mutable
+    - more common than tuples
+    - mutable
 
     # ***TUPLES
-    # - In some contexts, like a return statement, it is syntactically simpler to create a tuple than a list. In other contexts, you might prefer a list.
+    - In some contexts, like a return statement, it is syntactically simpler to create a tuple than a list. In other contexts, you might prefer a list.
 
-    # - If you want to use a sequence as a dictionary key, you have to use an immutable type like a tuple or string.
+    - If you want to use a sequence as a dictionary key, you have to use an immutable type like a tuple or string.
 
-    # - If you are passing a sequence as an argument to a function, using tuples reduces the potential for unexpected behavior due to aliasing.
+    - If you are passing a sequence as an argument to a function, using tuples reduces the potential for unexpected behavior due to aliasing.
 
-    # - Because tuples are immutable, they don’t provide methods like sort and reverse, which modify existing lists. 
+    - Because tuples are immutable, they don’t provide methods like sort and reverse, which modify existing lists. 
 
-    # - However Python provides the built-in functions sorted and reversed, which take any sequence as a parameter and return a new sequence with the same elements in a different order.
+    - However Python provides the built-in functions sorted and reversed, which take any sequence as a parameter and return a new sequence with the same elements in a different order.'''

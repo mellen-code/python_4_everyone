@@ -180,3 +180,12 @@ This loop traverses the keys in directory, which are tuples. It assigns the elem
     - Because tuples are immutable, they don’t provide methods like sort and reverse, which modify existing lists. 
 
     - However Python provides the built-in functions sorted and reversed, which take any sequence as a parameter and return a new sequence with the same elements in a different order.'''
+
+
+# ***LIST COMPREHENSION
+# concise way to create a new list from existing iterables
+'''
+list_of_ints = ['42', '65', '12']
+list_of_ints = [ int(x) for x in list_of_ints ]
+print(sum(list_of_ints))
+'''

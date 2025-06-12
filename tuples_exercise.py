@@ -20,9 +20,25 @@ if len(name) < 1:
     name = 'mbox_short.txt'
 fhand = open(name)
 
+hours_counts = dict()
+res = list()
+
 for line in fhand:
-    words = line.split(' ')
-    if words[0] == 'From':
-        first_colon = line.index(':')
-        time = line[first_colon-2:first_colon]
-        print(time)
+    words = line.split()
+    if len(words) > 0 and words[0] == 'From':
+        full_time = words[5]
+        hour = full_time.split(':')[0]
+        hours_counts[hour] = hours_counts.get(hour, 0) + 1
+        # if hour in hours_counts:
+        #     hours_counts[hour] += 1
+        # else:
+        #     hours_counts[hour] = 1
+
+# loop through dictionary key/value pairs and append to a list as tuples
+for key, val in hours_counts.items():
+    res.append((key, val))
+
+# sort the list of tuples by keys ascending (first value in the tuple), and print each tuple
+res.sort()
+for key, val in res:
+    print(key, val)

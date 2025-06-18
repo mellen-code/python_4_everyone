@@ -21,13 +21,34 @@ $        Matches the end of the line
 
 
 # Search for lines that start with From and have an at sign
-import re
-hand = open('mbox-short.txt')
-for line in hand:
-    line = line.rstrip()
-    if re.search('^From:.+@', line):
-        print(line)
+# import re
+# hand = open('mbox-short.txt')
+# for line in hand:
+#     line = line.rstrip()
+#     if re.search('^From:.+@', line):
+#         print(line)
 
 # This matches lines that start with 'From:', followed by one or more characters (.+), following by an at-sign ---> the last at-sign if there are more than 1 in the line.
 
 # *+  zero or more characters
+
+
+# EXTRACT EMAIL ADDRESSES.  Search for lines that have an at-sign between non-whitespace characters:
+# import re
+# fhand = open('mbox_short.txt')
+# for line in fhand:
+#     line = line.rstrip()
+#     x = re.findall('\S+@\S+', line)
+#     if len(x) > 0:
+#         print(x)
+
+
+# Search for lines that have an at sign between characters
+# The characters must be a letter or number
+import re
+hand = open('mbox_short.txt')
+for line in hand:
+    line = line.rstrip()
+    x = re.findall(r'[a-zA-Z0-9]\S*@[a-zA-Z]\S*', line)
+    if len(x) > 0:
+        print(x)

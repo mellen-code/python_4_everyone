@@ -45,10 +45,36 @@ $        Matches the end of the line
 
 # Search for lines that have an at sign between characters
 # The characters must be a letter or number
+# import re
+# hand = open('mbox_short.txt')
+# for line in hand:
+#     line = line.rstrip()
+#     x = re.findall(r'[a-zA-Z0-9]\S*@[a-zA-Z]\S*', line)
+#     if len(x) > 0:
+#         print(x)
+
+
+# Find lines that start with 'X-' and extract the number (can be a float):
 import re
-hand = open('mbox_short.txt')
-for line in hand:
+fhand = open('mbox_short.txt')
+for line in fhand:
     line = line.rstrip()
-    x = re.findall(r'[a-zA-Z0-9]\S*@[a-zA-Z]\S*', line)
-    if len(x) > 0:
-        print(x)
+    if re.search('X\S*: [0-9.]+', line):
+        print(line)
+# This prints the entire line.
+
+# If you want to SEARCH and EXTRACT, use findall(). Parentheses indicate that while you want the whole expression to match, you are interested in extracting a portion of the substring.
+import re
+fhand = open('mbox_short.txt')
+for line in fhand:
+    line = line.rstrip()
+    x = re.findall('^X\S*: ([0-9.]+)', line)
+    if len(x):
+        x_string = "".join(x)
+        x_num = float(x_string)
+        print(x_num)
+
+# EXERCISE TO DO:
+# Find lines with email addresses and extract the HOUR only e.g.
+# From stephen.marquard@uct.ac.za Sat Jan  5 09:14:16 2008
+# should only extract 09

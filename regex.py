@@ -1,22 +1,22 @@
-'''Python Regular Expression Quick Guide
+# Python Regular Expression Quick Guide
 
-^        Matches the beginning of a line
-$        Matches the end of the line
-.        Matches any character
-\s       Matches whitespace
-\S       Matches any non-whitespace character
-*        Repeats a character zero or more times
-*?       Repeats a character zero or more times 
-         (non-greedy)
-+        Repeats a character one or more times
-+?       Repeats a character one or more times 
-         (non-greedy)
-[aeiou]  Matches a single character in the listed set
-[^XYZ]   Matches a single character not in the listed set
-[a-z0-9] The set of characters can include a range
-(        Indicates where string extraction is to start
-)        Indicates where string extraction is to end
-'''
+# ^        Matches the beginning of a line
+# $        Matches the end of the line
+# .        Matches any character
+# \s       Matches whitespace
+# \S       Matches any non-whitespace character
+# *        Repeats a character zero or more times
+# *?       Repeats a character zero or more times 
+#          (non-greedy)
+# +        Repeats a character one or more times
+# +?       Repeats a character one or more times 
+#          (non-greedy)
+# [aeiou]  Matches a single character in the listed set
+# [^XYZ]   Matches a single character not in the listed set
+# [a-z0-9] The set of characters can include a range
+# (        Indicates where string extraction is to start
+# )        Indicates where string extraction is to end
+
 
 
 
@@ -55,26 +55,35 @@ $        Matches the end of the line
 
 
 # Find lines that start with 'X-' and extract the number (can be a float):
-import re
-fhand = open('mbox_short.txt')
-for line in fhand:
-    line = line.rstrip()
-    if re.search('X\S*: [0-9.]+', line):
-        print(line)
+# import re
+# fhand = open('mbox_short.txt')
+# for line in fhand:
+#     line = line.rstrip()
+#     if re.search('X\S*: [0-9.]+', line):
+#         print(line)
 # This prints the entire line.
 
 # If you want to SEARCH and EXTRACT, use findall(). Parentheses indicate that while you want the whole expression to match, you are interested in extracting a portion of the substring.
-import re
-fhand = open('mbox_short.txt')
-for line in fhand:
-    line = line.rstrip()
-    x = re.findall('^X\S*: ([0-9.]+)', line)
-    if len(x):
-        x_string = "".join(x)
-        x_num = float(x_string)
-        print(x_num)
+# import re
+# fhand = open('mbox_short.txt')
+# for line in fhand:
+#     line = line.rstrip()
+#     x = re.findall('^X\S*: ([0-9.]+)', line)
+#     if len(x):
+#         x_string = "".join(x)
+#         x_num = float(x_string)
+#         print(x_num)
 
 # EXERCISE TO DO:
 # Find lines with email addresses and extract the HOUR only e.g.
 # From stephen.marquard@uct.ac.za Sat Jan  5 09:14:16 2008
 # should only extract 09
+import re
+fhand = open('mbox_short.txt')
+for line in fhand:
+    line = line.rstrip()
+    x = re.findall('^From: .* ([0-9][0-9]):', line)
+    if len(x) > 0:
+        print(x)
+
+print('test')

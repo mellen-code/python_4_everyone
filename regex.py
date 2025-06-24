@@ -87,3 +87,15 @@ for line in fhand:
         print(x)
 
 print('test')
+
+
+# EXCERISE:
+# Match the dollar amount only:
+money = 'We just received $10.00 for cookies.'
+return_money = re.findall('\$[0-9.]+', money)
+print(return_money)
+
+# Prefixing the '$' with a backslash, escapes the '$' symbolic meaning. It just looks for a '$'.
+# [0-9.] matches digits or a period.
+    # Inside brackets, period is a period
+    # Outside brackets, period is 'wild-card' character

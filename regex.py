@@ -91,8 +91,8 @@ for line in fhand:
 
 # EXCERISE:
 # Match the dollar amount only:
-money = 'We just received $10.00 for cookies.'
-return_money = re.findall('\$[0-9.]+', money)
+# money = 'We just received $10.00 for cookies.'
+# return_money = re.findall('\$[0-9.]+', money)
 # print(return_money)
 
 # Prefixing the '$' with a backslash, escapes the '$' symbolic meaning. It just looks for a '$'.
@@ -104,13 +104,16 @@ return_money = re.findall('\$[0-9.]+', money)
 
 # SAMPLE EXERCISE
 import re
-hand = open('regex_sample_ex.txt')
-sum = 0
+hand = open('regex_sum_2142637.txt')
+total = 0
 for line in hand:
     line = line.rstrip()
     x = re.findall('([0-9]+)', line)
     if len(x) > 0:
         for num in x:
-            int_num = int(num)
-            sum += int_num
-print(sum)
+            total += int(num)
+print(total)
+
+#         for i in range(len(x)):
+#             total += int(x[i])
+# print(total)
